@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+const html = (data) => {
+  return `<!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -9,12 +10,18 @@
     <body>
         <header><span>linkedin</span><span>github</span></header>
         <main>
-            <p>oli</p>
-            <p>2</p>
-            <p>2</p>
-            <p>2</p>
-            <p>2</p>
+            <p>${data.name}</p>
+            <p>${data.location}</p>
+            <p>${data.bio}</p>
+            <p>${data.linkedin}</p>
+            <p>${data.github}</p>
         </main>
     
     </body>
-    </html>
+    </html>`;
+};
+
+// Export the html function
+module.exports = {
+  html,
+};
