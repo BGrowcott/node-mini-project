@@ -10,9 +10,15 @@ inquirer
       name: 'name',
       message: 'What is your name?',
     },
+    {
+        type: 'input',
+        name: 'location',
+        message: 'Where are you?',
+      }
   ])
   .then((data) => {
     const filename = `index.HTML`;
+    console.log(data)
 
     const HTML = `
     <!DOCTYPE html>
@@ -27,7 +33,7 @@ inquirer
         <header><span>linkedin</span><span>github</span></header>
         <main>
             <p>${data.name}</p>
-            <p>location</p>
+            <p>${data.location}</p>
             <p>bio</p>
         </main>
         
