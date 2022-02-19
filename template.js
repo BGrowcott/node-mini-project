@@ -1,24 +1,40 @@
 const html = (data) => {
   return `<!DOCTYPE html>
-    <html lang="en">
+  <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="reset.css">
+      <link rel="stylesheet" href="style.css">
+      <title>Document</title>
     </head>
     <body>
-        <header><span>linkedin</span><span>github</span></header>
-        <main>
-            <p>${data.name}</p>
-            <p>${data.location}</p>
-            <p>${data.bio}</p>
-            <p>${data.linkedin}</p>
-            <p>${data.github}</p>
-        </main>
-    
+      <header>
+          <h1>${data.name}'s portfolio</h1>
+          <nav>
+        <span>
+          <a href="${data.linkedin}">linkedin</a>
+        </span>
+        <span>
+          <a href="${data.github}">github</a>
+        </span>
+      </nav>
+      </header>
+      <main>
+          <section id="userInfoContainer">
+        <h2>${data.name}</h2>
+        <p>${data.location}</p>
+        <p>
+        ${data.bio}
+        </p>
+      </section>
+      <section id="user">
+        <img src="images/char1.png" alt="placeholder">
+      </section>
+      </main>
     </body>
-    </html>`;
+  </html>`;
 };
 
 // Export the html function
