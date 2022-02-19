@@ -1,0 +1,1 @@
+Node script for creating HTML file for a portfolio page
