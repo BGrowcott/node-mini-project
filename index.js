@@ -1,50 +1,42 @@
-const inquirer = require('inquirer');
-const fs = require('fs');
+const inquirer = require("inquirer");
+const fs = require("fs");
 
-
+// Bring in template file
+const template = require("./template.js");
 
 inquirer
   .prompt([
     {
-      type: 'input',
-      name: 'name',
-      message: 'What is your name?',
+      type: "input",
+      name: "name",
+      message: "What is your name?",
     },
     {
-        type: 'input',
-        name: 'location',
-        message: 'Where are you?',
-      }
+      type: "input",
+      name: "location",
+      message: "Where are you?",
+    },
+    {
+      type: "input",
+      name: "bio",
+      message: "Tell me about yourself?",
+    },
+    {
+      type: "input",
+      name: "linkedin",
+      message: "What is your LinkedIn profile URL?",
+    },
+    {
+      type: "input",
+      name: "github",
+      message: "What is your GitHub profile URL?",
+    },
   ])
   .then((data) => {
     const filename = `index.HTML`;
-    console.log(data)
-
-    const HTML = `
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-    </head>
-    <body>
-        <header><span>linkedin</span><span>github</span></header>
-        <main>
-            <p>${data.name}</p>
-            <p>${data.location}</p>
-            <p>bio</p>
-        </main>
-        
-    </body>
-    </html>
-    `
-
-
-
-    fs.writeFile(filename, HTML, (err) =>
-      err ? console.log(err) : console.log('Success!')
+    console.log(data);
+    // Write to the file
+    fs.writeFile(filename, template.html(data), (err) =>
+      err ? console.log(err) : console.log("Success!")
     );
   });
-
